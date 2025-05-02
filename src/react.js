@@ -1,31 +1,25 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-
-const CurrentDate = (props) => {
-    return (
-      <div>
-        { /* Change code below this line */ }
-        <p>The current date is: {props.date}</p>
-        { /* Change code above this line */ }
-      </div>
-    );
+ const List = (props) => {
+    return <p>{props.tasks.join(", ")}</p>
   };
   
-  class Calendar extends React.Component {
+  class ToDo extends React.Component {
     // constructor(props) {
     //   super(props);
     // }
     render() {
       return (
         <div>
-          <h3>What date is it?</h3>
+          <h1>To Do Lists</h1>
+          <h2>Today</h2>
           { /* Change code below this line */ }
-          <CurrentDate date={Date()}/>
+          <List tasks={["walk dog", "workout"]}/>
+          <h2>Tomorrow</h2>
+          <List tasks={["do sports", "swim", "ride a bike"]}/>
           { /* Change code above this line */ }
         </div>
       );
     }
   };
-
-  ReactDOM.render(<Calendar />, document.getElementById('root'));
+  export default ToDo;
