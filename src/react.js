@@ -1,19 +1,31 @@
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// Change code below this line
-class MyComponent extends React.Component {
-    // constructor (props) {
+
+const CurrentDate = (props) => {
+    return (
+      <div>
+        { /* Change code below this line */ }
+        <p>The current date is: {props.date}</p>
+        { /* Change code above this line */ }
+      </div>
+    );
+  };
+  
+  class Calendar extends React.Component {
+    // constructor(props) {
     //   super(props);
     // }
-    render () {
+    render() {
       return (
         <div>
-          <h1>My First React Component!</h1>
+          <h3>What date is it?</h3>
+          { /* Change code below this line */ }
+          <CurrentDate date={Date()}/>
+          { /* Change code above this line */ }
         </div>
-      )
+      );
     }
-  }
-  
-  ReactDOM.render(<MyComponent/>, document.getElementById('challenge-node'));
+  };
+
+  ReactDOM.render(<Calendar />, document.getElementById('root'));
