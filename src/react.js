@@ -1,24 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const Items = (props) => {
-    return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
-  }
-
-  Items.propTypes = {
-    quantity: PropTypes.number.isRequired
-  }
-  
-  Items.defaultProps = {
-    quantity: 0
-  }
-  
-  class ShoppingCart extends React.Component {
-    // constructor(props) {
-    //   super(props);
-    // }
-    render() {
-      return <Items quantity={10}/>
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Only change code below this line
+    this.state = {
+      firstName: "John"
     }
-  };
-  export default ShoppingCart;
+    // Only change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.firstName}</h1>
+      </div>
+    );
+  }
+};
+  export default StatefulComponent;
