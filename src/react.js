@@ -1,53 +1,44 @@
 import React from 'react'
 
-const inputStyle = {
-  width: 235,
-  margin: 5
-};
+class Results extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+  render() {
+    // {/* Change code below this line */}
+    return <h1>{(this.props.fiftyFifty >= .5) ? "You win!" : "You lose!"}</h1>;
+    // {/* Change code above this line */}
+  }
+}
 
-class CheckUserAge extends React.Component {
+class GameOfChance extends React.Component {
   constructor(props) {
     super(props);
-    // Change code below this line
     this.state = {
-      userAge: '',
-      input: ''
-    }
-    // Change code above this line
-    this.submit = this.submit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+      counter: 1
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
-  handleChange(e) {
-    this.setState({
-      input: e.target.value,
-      userAge: ''
+  handleClick() {
+    this.setState(prevState => {
+      // Complete the return statement:
+      return {
+        counter: prevState.counter + 1
+      }
     });
   }
-  submit() {
-    this.setState(state => ({
-      userAge: state.input
-    }));
-  }
   render() {
-    const buttonOne = <button onClick={this.submit}>Submit</button>;
-    const buttonTwo = <button>You May Enter</button>;
-    const buttonThree = <button>You Shall Not Pass</button>;
+    const expression = Math.random(); // Change this line
     return (
       <div>
-        <h3>Enter Your Age to Continue</h3>
-        <input
-          style={inputStyle}
-          type='number'
-          value={this.state.input}
-          onChange={this.handleChange}
-        />
-        <br />
+        <button onClick={this.handleClick}>Play Again</button>
         {/* Change code below this line */}
-        {this.state.userAge === '' ? buttonOne : this.state.userAge >= 18 ? buttonTwo : buttonThree}
+<Results fiftyFifty={expression}/>
         {/* Change code above this line */}
+        <p>{'Turn: ' + this.state.counter}</p>
       </div>
     );
   }
 }
 
-  export default CheckUserAge;
+  export default GameOfChance;
