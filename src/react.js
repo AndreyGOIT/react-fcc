@@ -1,49 +1,16 @@
 import React from 'react'
+import { renderToString } from 'react-dom/server';
 
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [
-        {
-          username: 'Jeff',
-          online: true
-        },
-        {
-          username: 'Alan',
-          online: false
-        },
-        {
-          username: 'Mary',
-          online: true
-        },
-        {
-          username: 'Jim',
-          online: false
-        },
-        {
-          username: 'Sara',
-          online: true
-        },
-        {
-          username: 'Laura',
-          online: true
-        }
-      ]
-    };
-  }
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
-    const usersOnline = this.state.users.filter(user => user.online); // Change this line
-    const renderOnline = usersOnline.map(user => {
-      return <li key={user.username}>{user.username}</li>;
-    }); // Change this line
-    return (
-      <div>
-        <h1>Current Online Users:</h1>
-        <ul>{renderOnline}</ul>
-      </div>
-    );
+    return <div/>
   }
-}
+};
 
-  export default MyComponent;
+// Change code below this line
+renderToString(<App />);
+
+  export default App;
